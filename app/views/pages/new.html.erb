@@ -1,0 +1,42 @@
+<h5>
+
+
+<% Place.select("placename, daycharge") do |p| %>
+<%= p.placename %>
+<%= p.daycharge %>
+<% end %>
+<%= Place.average(:daycharge)%>
+<br/>
+<%= Place.pluck(:placename)%>
+<br/>
+<%= Place.pluck(:id)%>
+<br/><br/>
+<caption align="top"><b>Result for Packages</b></caption>
+</h5>
+<br />
+<table class="table table-bordered">
+
+   <!-- On rows -->
+   <tr>
+<th class="">Sr. No.</th>
+<th class="">Days</th>
+<th class="">Nights</th>
+<th class="">Place</th>
+<th class="">Package</th>
+</tr>
+<!-- On cells (`td` or `th`) -->
+<%row=1%>
+<%@days.to_i.times do %>
+<tr>
+  <td class=""><%= row%></td>
+  <td class=""><%= @days%></td>
+  <td class=""><%= @nights%></td>
+  <td class=""><%= @place%></td>
+  <td class="">Rs. <%= @total_price%></td>
+</tr>
+<%row+=1%>
+<%end%>
+</table>
+
+
+
