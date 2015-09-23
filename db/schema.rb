@@ -14,33 +14,33 @@
 ActiveRecord::Schema.define(version: 20150921060522) do
 
   create_table "places", force: :cascade do |t|
-    t.string   "placename",   limit: 255
-    t.integer  "daycharge",   limit: 4
-    t.integer  "nightcharge", limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "placename"
+    t.integer  "daycharge"
+    t.integer  "nightcharge"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "places", ["placename"], name: "index_places_on_placename", using: :btree
+  add_index "places", ["placename"], name: "index_places_on_placename"
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",              limit: 255
-    t.string   "crypted_password",   limit: 255
-    t.string   "password_salt",      limit: 255
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
-    t.string   "persistence_token",  limit: 255
-    t.integer  "login_count",        limit: 4,   default: 0, null: false
-    t.integer  "failed_login_count", limit: 4,   default: 0, null: false
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "persistence_token"
+    t.integer  "login_count",        default: 0, null: false
+    t.integer  "failed_login_count", default: 0, null: false
     t.datetime "last_request_at"
     t.datetime "current_login_at"
     t.datetime "last_login_at"
-    t.string   "current_login_ip",   limit: 255
-    t.string   "last_login_ip",      limit: 255
-    t.string   "perishable_token",   limit: 255
-    t.string   "status_type",        limit: 255
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
+    t.string   "perishable_token"
+    t.string   "status_type"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end
