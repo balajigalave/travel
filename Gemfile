@@ -3,16 +3,15 @@ ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 gem 'mysql2'
-
+gem 'unicorn'
+gem 'rack-timeout'
 group :development do
   gem 'sqlite3'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'annotate'
 end
-
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
  gem 'formtastic', '~> 3.0'

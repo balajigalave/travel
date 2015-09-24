@@ -1,0 +1,25 @@
+<div class="page-header"><h1>Register</h1></div>
+
+<%if @user=="Balaji"%>
+<%= @user%>
+<%end%>
+<%= @all_data%>
+
+
+<%= form_tag pages_add_place_path, method: :add_place do |f| %>
+  
+  <div>
+    <b>Day Charge (in INR):</b>
+    <%= text_field_tag(:daycharge)%>
+  </div>
+<div class="form-group">
+      <b>  Night Charge (in INR):</b>
+    <%= text_field_tag(:nightcharge) %>
+  </div>
+  <div class="form-group">
+     <b>  Place Name : </b>
+    <%= text_field_tag(:placename)%>
+  </div>
+ 
+  <%= submit_tag 'Add', class: 'btn btn-primary btn-lg' %>
+<% end %>

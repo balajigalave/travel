@@ -10,10 +10,13 @@ class PagesController < ApplicationController
     #@rowvalues=Place.find_by_placename(params[:place])
     #@rowvalues=Place.where("placename = ?", params[:place]).first
     #@query = Place.select(:placename).first
+    #p=Place.new
+    ####p.save
 
-
-
-
+    #Place.find(1).destroy
+    #Place.find(2).destroy
+    #Place.find(3).destroy
+    #Place.find(4).destroy
     p=Place.where("placename= ?", params[:place])
     puts p.to_s
     @days = params[:days]
@@ -31,6 +34,23 @@ class PagesController < ApplicationController
 
   end
 
+
+
+def add_place
+    
+    p=Place.new
+    p.daycharge=params[:daycharge]
+    p.nightcharge=params[:nightcharge]
+    p.placename=params[:placename]
+    p.save
+
+    @all_data=params[:daycharge]
+
+
+@user="Balaji"
+
+
+end
 
 
 end

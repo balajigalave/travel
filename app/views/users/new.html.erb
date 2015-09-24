@@ -2,7 +2,6 @@
 
 <%= form_for @user do |f| %>
   <%= render 'shared/errors', object: @user %>
-
   <div class="form-group">
     <%= f.label :email %>
     <%= f.email_field :email, class: 'form-control' %>

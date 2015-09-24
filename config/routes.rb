@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   delete '/sign_out', to: 'user_sessions#destroy', as: :sign_out
   get '/sign_in', to: 'user_sessions#new', as: :sign_in
   post '/pages_new', to: 'pages#new', as: :pages_new
-    get '/pages_show_data', to: 'pages#show_data', as: :pages_show_data
+  post '/pages_add_place', to: 'pages#add_place', as: :pages_add_place
+  get '/pages_show_data', to: 'pages#show_data', as: :pages_show_data
 
 
   root to: 'pages#index'

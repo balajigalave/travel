@@ -1,4 +1,7 @@
 <% if current_user %>
+<%= form_tag pages_add_place_path, method: :new do |f| %> 
+   </p><%= submit_tag 'Add Place', class: 'btn btn-primary pull-right ' %> </p>
+   <%end%>
   <div class="page-header"><h1>Welcome back!</h1></div>
   <p>  
 
@@ -33,9 +36,6 @@
       <li>Current login IP: <%= current_user.current_login_ip %></li>
       <li>Last login IP: <%= current_user.last_login_ip %></li>
     </ul>
-
-
-
 
   </div>
 
