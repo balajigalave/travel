@@ -30,14 +30,9 @@ class PagesController < ApplicationController
         @total_price=(p.daycharge.to_i*@days.to_i)+(p.nightcharge.to_i*@nights.to_i)
         end
     end 
-    
-
   end
 
-
-
 def add_place
-    
     p=Place.new
     
     if (params[:placename]!="" && params[:daycharge]!="" && params[:nightcharge]!="" && !params[:placename].nil? )
@@ -52,7 +47,6 @@ def add_place
         render :add_place
 
     end
- 
 
     @all_data=params[:daycharge]
 
