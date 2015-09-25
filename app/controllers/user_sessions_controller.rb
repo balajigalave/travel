@@ -11,9 +11,6 @@ class UserSessionsController < ApplicationController
     else
       render :new
     end
-
-
-
   end
 
   def destroy
@@ -27,12 +24,8 @@ class UserSessionsController < ApplicationController
 
   def status_type
 
-     @user_session = UserSession.new
-
-    
+     @user_session = UserSession.new    
   end
-
-
   def user_session_params
     params.require(:user_session).permit(:email, :password, :remember_me)
   end
