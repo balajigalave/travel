@@ -18,7 +18,7 @@ end
 gem 'thin'
 
 gem 'bootstrap-sass'
-gem 'pg'
+#gem 'pg'
 gem 'cowsay'
 gem 'authlogic', '3.4.6'
 # Use SCSS for stylesheets

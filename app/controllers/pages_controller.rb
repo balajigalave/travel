@@ -39,18 +39,32 @@ class PagesController < ApplicationController
 def add_place
     
     p=Place.new
-    p.daycharge=params[:daycharge]
-    p.nightcharge=params[:nightcharge]
-    p.placename=params[:placename]
-    p.save
+    
+    if (params[:placename]!="" && params[:daycharge]!="" && params[:nightcharge]!="" && !params[:placename].nil? )
+                p.daycharge=params[:daycharge]
+                p.nightcharge=params[:nightcharge]
+                p.placename=params[:placename]
+                 if p.save
+                flash[:success] = "Place added "
+                end
+    else
+        flash[:warning] = "field cant be blank"
+        render :add_place
+
+    end
+ 
 
     @all_data=params[:daycharge]
 
 
-@user="Balaji"
+    @user="Balaji"
 
 
 end
+
+def add_place_params
+    params.require(:place).permit(:placename, :daycharge,:nightcharge)
+  end
 
 
 end
