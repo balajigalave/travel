@@ -47,12 +47,8 @@ def add_place
         render :add_place
 
     end
-
     @all_data=params[:daycharge]
-
-
     @user="Balaji"
-
 
 end
 
