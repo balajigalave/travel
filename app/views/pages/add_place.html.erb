@@ -1,27 +1,114 @@
 <% if current_user %>
-<div class="page-header"><h1>Add Place</h1></div>
+<div class="page-header"><h1>Add Package</h1></div>
 <%if @user=="Balaji"%>
 <%= @user%>
 <%end%>
 <%= @all_data%>
-<%= form_tag pages_add_place_path, method: :add_place do |f| %>
+<% digits = Array(1..20) %>
+<% roles=Array(0..6)%>
+<% facility=["facility","facility","facility","facility","facility","facility"]%>
 
-  <div>
-    <b>Day Charge (in INR):</b>
-    <%= text_field_tag(:daycharge)%>
-  </div>
-<div class="form-group">
-      <b>  Night Charge (in INR):</b>
-    <%= text_field_tag(:nightcharge) %>
-  </div>
-  <div class="form-group">
-     <b>  Place Name : </b>
-    <%= text_field_tag(:placename)%>
-  </div>
- 
-  <%= submit_tag 'Add', class: 'btn btn-primary btn-lg' %>
-<% end %>
 
+<div class="table-responsive">
+  <table class="table ">
+    <%= form_tag pages_add_place_path, method: :add_place do |f| %>
+      <tr>   
+            <div class="form-group "  >
+              <td class="col-xs-2"><label>Package Name : </label></td>  
+              <div class="form_control col-sm-2">
+              <td><%= text_field_tag(:place_package_name)%></td>
+              </div>
+            </div>
+            
+      </tr>
+
+
+      <tr>   
+            <div class="form-group "  >
+              <td class="col-xs-2"><label>Number of Days:</label></td>  
+              <div class="form_control col-sm-2">
+              <td><%= select_tag(:place_number_days, options_for_select(digits),{:prompt => "--select days--"})%></td>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <td class="col-xs-2"><label>  Number of Nights:</label></td>
+               <div class="form_control">
+              <td><%= select_tag(:place_number_nights, options_for_select(digits),{:prompt => "--select nights--"})%></td>
+              </div>
+            </div>
+            
+      </tr>
+
+      </tr>
+            <div class="form-group">
+              <td class="col-xs-3"><label>  Place Name :</label></td>
+               <div class="form_control">
+              <td><%= text_field_tag(:place_placename)%></td>
+              </div>
+            </div>
+      </tr>      
+      </tr>
+
+            <div class="form-group">
+              <td><label>  Package Category : </label></td>
+               <div class="form_control input lg">
+              <td><%= text_field_tag(:place_package_category)%></td>
+              </div>
+            </div>  
+      </tr> 
+      
+      <tr>
+            <div class="form-group">
+              <td><label>  Package facility : </label></td>
+               
+              <td><%= text_field_tag(:place_package_facility , size: 20)%></td>
+             
+            </div>  
+
+      </tr>
+       <!--<tr>
+            <div class="form-group">
+              <td><label>  Package Facility : </label></td>
+              <td>
+                    <table class="table ">
+                          <tr>
+                            <div class="form-group">   
+                              <ul>
+                              <%i=facility.length%>
+                                <% roles.each do |role| %>
+                                <li>
+                                <%= check_box_tag (:place) %>
+                                <%= facility[i]%>
+                                <%i=i+1%>
+                                </li>
+                                <% end %>
+                                </ul>
+                    </div>  
+                    </table>
+
+              </td>
+             
+            </div>  
+
+      </tr>-->
+      <tr>
+            <div class="form-group">
+              <td><label>  Package Price : </label></td>
+               
+              <td><%= text_field_tag(:place_package_price)%></td>
+             
+            </div>  
+
+      </tr>
+
+      <tr>            
+            <td><%= submit_tag 'Add', class: 'btn btn-primary btn-lg' %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<div>
 <% else %>
   <div class="jumbotron">
     <div class="container">

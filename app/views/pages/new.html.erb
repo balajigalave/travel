@@ -1,15 +1,15 @@
 <h5>
+<%= Place.where(:days=> '1', :nights=> '1', :placename=> 'karad').select("price")%>
 
-
-<% Place.select("placename, daycharge") do |p| %>
-<%= p.placename %>
-<%= p.daycharge %>
-<% end %>
-<%= Place.average(:daycharge)%>
 <br/>
 <%= Place.pluck(:placename)%>
 <br/>
 <%= Place.pluck(:id)%>
+<br/>
+<%= Place.pluck(:price)%>
+
+
+
 <br/><br/>
 <caption align="top"><b>Result for Packages</b></caption>
 </h5>
